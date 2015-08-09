@@ -1,2 +1,5 @@
 <?php
-    echo 'test123';
+    //用来添加的方法
+    function add(){
+        echo 'add';
+    }
