@@ -3,10 +3,10 @@
     function add(){
         echo 'add123';
     }
-    
-    //插入方法
-    public function insert(){
-        echo 'wqdw';
-        echo 'wqdw';
-        echo 'wqdw';
-    }
+
+//获取方法
+public function getList(){
+    echo 'getlist';
+    echo 'getlist';
+    echo 'getlist';
+}
