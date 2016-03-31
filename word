@@ -1,0 +1,84 @@
+使用nginx根据URL路径判断做代理转发
+
+需求
+ 根据URL对不同的访问需求转发到后端服务器
+例
+www.a.com/buyer    转发到192.168.3.164
+www.a.com/user        转发到192.168.3.167 192.168.3.168
+环境
+www.a.com域名指向192.168.3.166
+192.168.3.164处理www.a.com/buyer的请求
+192.168.3.167 192.168.3.168处理www.a.com/user的请求
+解决
+使用proxy_pass和upstream 命令处理代理转发
+
+域名指向www.a.com 192.168.3.166
+3.166的nginx配置需要添加一下内容
+
+在/etc/nginx/conf.d/中创建新的配置文件，a.conf
+基本配置不便
+添加以下配置
+在server前添加两个upstream
+upstream user {
+        server 192.168.3.167;
+        server 192.168.3.168
+        }
+upstream buyer {
+        server 192.168.3.164;
+        }
+
+upstream段中可添加多个server用以实现负载均衡，也可以用weight来改变权重
+
+在server段中添加location用以指向上文的两个upstream
+        location /buyer {
+        #代理出错error、超时timeout情况下转至下一服务器
+                proxy_next_upstream error timeout;
+        #超时时间15s。默认60s
+                proxy_connect_timeout 15s；
+                proxy_pass http://buyer;
+        }
+        location /user {
+                proxy_next_upstream error timeout;
+                proxy_connect_timeout 15s；
+                proxy_pass http://user;
+        }
+
+
+php Session存储到Redis的方法
+
+使用redis存储php session可以解决多机共享，session文件过多导致linux文件系统inode报警等问题。
+要实现使用redis存储session需要以下几个步骤
+1安装redis
+redis-2.8.19.tar.gz
+#解压缩
+tar xzf redis-2.8.19.tar.gz
+cd redis-2.8.19
+#编译安装
+make && make install
+#复制配置文件
+cp redis.conf /etc/
+#修改配置文件，使redis为守护进程方式运行
+sed -i ‘/daemonize/ s/no/yes/g’ /etc/redis.conf
+#启动redis
+redis-server /etc/redis.conf
+#检查是否启动
+netstate -nptl| grep redis
+2安装php-redis模块
+curl -O https://nodeload.github.com/nicolasff/phpredis/zip/master
+tar -zxf master
+cd phpredis-master/
+phpize
+./configure
+make
+sudo make install
+3修改php.ini配置
+增加如下内容( [PHP]模块下)
+extension=redis.so
+修改以下两项([session]模块下)
+session.save_handler = redis
+session.save_path = "tcp://127.0.0.1:6379"
+#重启php-fpm
+service php5-fpm restart
+#查看扩展安装情况
+php -m |grep redis
+#出现 redis 表示安装成功。
