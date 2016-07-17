@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 助手类
  * @author www.shouce.ren
@@ -10,20 +11,23 @@ class Helper
      * 判断当前服务器系统
      * @return string
      */
-    public static function getOS(){
-        if(PATH_SEPARATOR == ':'){
+    public static function getOS()
+    {
+        if (PATH_SEPARATOR == ':') {
             return 'Linux';
-        }else{
+        } else {
             return 'Windows';
         }
     }
+
     /**
      * 当前微妙数
      * @return number
      */
-    public static function microtime_float() {
-        list ( $usec, $sec ) = explode ( " ", microtime () );
-        return (( float ) $usec + ( float ) $sec);
+    public static function microtime_float()
+    {
+        list ($usec, $sec) = explode(" ", microtime());
+        return (( float )$usec + ( float )$sec);
     }
 
     /**
@@ -33,24 +37,25 @@ class Helper
      * @version v1.0.0
      *
      */
-    public static function truncate_utf8_string($string, $length, $etc = '...') {
+    public static function truncate_utf8_string($string, $length, $etc = '...')
+    {
         $result = '';
-        $string = html_entity_decode ( trim ( strip_tags ( $string ) ), ENT_QUOTES, 'UTF-8' );
-        $strlen = strlen ( $string );
-        for($i = 0; (($i < $strlen) && ($length > 0)); $i ++) {
-            if ($number = strpos ( str_pad ( decbin ( ord ( substr ( $string, $i, 1 ) ) ), 8, '0', STR_PAD_LEFT ), '0' )) {
+        $string = html_entity_decode(trim(strip_tags($string)), ENT_QUOTES, 'UTF-8');
+        $strlen = strlen($string);
+        for ($i = 0; (($i < $strlen) && ($length > 0)); $i++) {
+            if ($number = strpos(str_pad(decbin(ord(substr($string, $i, 1))), 8, '0', STR_PAD_LEFT), '0')) {
                 if ($length < 1.0) {
                     break;
                 }
-                $result .= substr ( $string, $i, $number );
+                $result .= substr($string, $i, $number);
                 $length -= 1.0;
                 $i += $number - 1;
             } else {
-                $result .= substr ( $string, $i, 1 );
+                $result .= substr($string, $i, 1);
                 $length -= 0.5;
             }
         }
-        $result = htmlspecialchars ( $result, ENT_QUOTES, 'UTF-8' );
+        $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');
         if ($i < $strlen) {
             $result .= $etc;
         }
@@ -60,23 +65,24 @@ class Helper
     /**
      * 遍历文件夹
      * @param string $dir
-     * @param boolean $all  true表示递归遍历
+     * @param boolean $all true表示递归遍历
      * @return array
      */
-    public static function scanfDir($dir='', $all = false, &$ret = array()){
-        if ( false !== ($handle = opendir ( $dir ))) {
-            while ( false !== ($file = readdir ( $handle )) ) {
-                if (!in_array($file, array('.', '..', '.git', '.gitignore', '.svn', '.htaccess', '.buildpath','.project'))) {
+    public static function scanfDir($dir = '', $all = false, &$ret = array())
+    {
+        if (false !== ($handle = opendir($dir))) {
+            while (false !== ($file = readdir($handle))) {
+                if (!in_array($file, array('.', '..', '.git', '.gitignore', '.svn', '.htaccess', '.buildpath', '.project'))) {
                     $cur_path = $dir . '/' . $file;
-                    if (is_dir ( $cur_path )) {
-                        $ret['dirs'][] =$cur_path;
-                        $all && self::scanfDir( $cur_path, $all, $ret);
+                    if (is_dir($cur_path)) {
+                        $ret['dirs'][] = $cur_path;
+                        $all && self::scanfDir($cur_path, $all, $ret);
                     } else {
                         $ret ['files'] [] = $cur_path;
                     }
                 }
             }
-            closedir ( $handle );
+            closedir($handle);
         }
         return $ret;
     }
@@ -88,22 +94,23 @@ class Helper
      * @param string $message
      * @return boolean
      */
-    public static function sendMail($toemail = '', $subject = '', $message = '') {
-        $mailer = Yii::createComponent ( 'application.extensions.mailer.EMailer' );
+    public static function sendMail($toemail = '', $subject = '', $message = '')
+    {
+        $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
 
         //邮件配置
         $mailer->SetLanguage('zh_cn');
         $mailer->Host = Yii::app()->params['emailHost']; //发送邮件服务器
         $mailer->Port = Yii::app()->params['emailPort']; //邮件端口
-        $mailer->Timeout = Yii::app()->params['emailTimeout'];//邮件发送超时时间
-        $mailer->ContentType = 'text/html';//设置html格式
+        $mailer->Timeout = Yii::app()->params['emailTimeout']; //邮件发送超时时间
+        $mailer->ContentType = 'text/html'; //设置html格式
         $mailer->SMTPAuth = true;
         $mailer->Username = Yii::app()->params['emailUserName'];
         $mailer->Password = Yii::app()->params['emailPassword'];
-        $mailer->IsSMTP ();
+        $mailer->IsSMTP();
         $mailer->From = $mailer->Username; // 发件人邮箱
         $mailer->FromName = Yii::app()->params['emailFormName']; // 发件人姓名
-        $mailer->AddReplyTo ( $mailer->Username );
+        $mailer->AddReplyTo($mailer->Username);
         $mailer->CharSet = 'UTF-8';
 
         // 添加邮件日志
@@ -112,23 +119,23 @@ class Helper
         $modelMail->subject = $subject;
         $modelMail->message = $message;
         $modelMail->send_status = 'waiting';
-        $modelMail->save ();
+        $modelMail->save();
         // 发送邮件
-        $mailer->AddAddress ( $toemail );
+        $mailer->AddAddress($toemail);
         $mailer->Subject = $subject;
         $mailer->Body = $message;
 
-        if ($mailer->Send () === true) {
+        if ($mailer->Send() === true) {
             $modelMail->times = $modelMail->times + 1;
             $modelMail->send_status = 'success';
-            $modelMail->save ();
+            $modelMail->save();
             return true;
         } else {
             $error = $mailer->ErrorInfo;
             $modelMail->times = $modelMail->times + 1;
             $modelMail->send_status = 'failed';
             $modelMail->error = $error;
-            $modelMail->save ();
+            $modelMail->save();
             return false;
         }
     }
@@ -144,9 +151,9 @@ class Helper
         $str = preg_replace("/[\x01-\x7F]+/", "", $str);
         if (empty($str)) return $default;
 
-        $preg =  array(
+        $preg = array(
             "gb2312" => "/^([\xA1-\xF7][\xA0-\xFE])+$/", //正则判断是否是gb2312
-            "utf-8" => "/^[\x{4E00}-\x{9FA5}]+$/u",      //正则判断是否是汉字(utf8编码的条件了)，这个范围实际上已经包含了繁体中文字了
+            "utf-8" => "/^[\x{4E00}-\x{9FA5}]+$/u", //正则判断是否是汉字(utf8编码的条件了)，这个范围实际上已经包含了繁体中文字了
         );
 
         if ($default == 'gb2312') {
@@ -166,35 +173,36 @@ class Helper
         }
         return $default;
     }
+
     /**
      * utf-8和gb2312自动转化
      * @param unknown $string
      * @param string $outEncoding
      * @return unknown|string
      */
-    public static function safeEncoding($string,$outEncoding = 'UTF-8')
+    public static function safeEncoding($string, $outEncoding = 'UTF-8')
     {
         $encoding = "UTF-8";
-        for($i = 0; $i < strlen ( $string ); $i ++) {
-            if (ord ( $string {$i} ) < 128)
+        for ($i = 0; $i < strlen($string); $i++) {
+            if (ord($string{$i}) < 128)
                 continue;
 
-            if ((ord ( $string {$i} ) & 224) == 224) {
+            if ((ord($string{$i}) & 224) == 224) {
                 // 第一个字节判断通过
-                $char = $string {++ $i};
-                if ((ord ( $char ) & 128) == 128) {
+                $char = $string{++$i};
+                if ((ord($char) & 128) == 128) {
                     // 第二个字节判断通过
-                    $char = $string {++ $i};
-                    if ((ord ( $char ) & 128) == 128) {
+                    $char = $string{++$i};
+                    if ((ord($char) & 128) == 128) {
                         $encoding = "UTF-8";
                         break;
                     }
                 }
             }
-            if ((ord ( $string {$i} ) & 192) == 192) {
+            if ((ord($string{$i}) & 192) == 192) {
                 // 第一个字节判断通过
-                $char = $string {++ $i};
-                if ((ord ( $char ) & 128) == 128) {
+                $char = $string{++$i};
+                if ((ord($char) & 128) == 128) {
                     // 第二个字节判断通过
                     $encoding = "GB2312";
                     break;
@@ -202,21 +210,22 @@ class Helper
             }
         }
 
-        if (strtoupper ( $encoding ) == strtoupper ( $outEncoding ))
+        if (strtoupper($encoding) == strtoupper($outEncoding))
             return $string;
         else
-            return @iconv ( $encoding, $outEncoding, $string );
+            return @iconv($encoding, $outEncoding, $string);
     }
+
     /**
      * 返回二维数组中某个键名的所有值
      * @param input $array
      * @param string $key
      * @return array
      */
-    public static function array_key_values($array =array(), $key='')
+    public static function array_key_values($array = array(), $key = '')
     {
         $ret = array();
-        foreach((array)$array as $k=>$v){
+        foreach ((array)$array as $k => $v) {
             $ret[$k] = $v[$key];
         }
         return $ret;
@@ -228,8 +237,9 @@ class Helper
      * @param string $file 文件/目录
      * @return boolean
      */
-    public static function is_writeable($file) {
-        if (is_dir($file)){
+    public static function is_writeable($file)
+    {
+        if (is_dir($file)) {
             $dir = $file;
             if ($fp = @fopen("$dir/test.txt", 'w')) {
                 @fclose($fp);
@@ -249,17 +259,19 @@ class Helper
 
         return $writeable;
     }
+
     /**
      * 格式化单位
      */
-    static public function byteFormat( $size, $dec = 2 ) {
-        $a = array ( "B" , "KB" , "MB" , "GB" , "TB" , "PB" );
+    static public function byteFormat($size, $dec = 2)
+    {
+        $a = array("B", "KB", "MB", "GB", "TB", "PB");
         $pos = 0;
-        while ( $size >= 1024 ) {
+        while ($size >= 1024) {
             $size /= 1024;
-            $pos ++;
+            $pos++;
         }
-        return round( $size, $dec ) . " " . $a[$pos];
+        return round($size, $dec) . " " . $a[$pos];
     }
 
     /**
@@ -271,16 +283,17 @@ class Helper
      * selected checked
      * @return string
      */
-    static public function selected( $string, $param = 1, $type = 'select' ) {
+    static public function selected($string, $param = 1, $type = 'select')
+    {
 
         $true = false;
-        if ( is_array( $param ) ) {
-            $true = in_array( $string, $param );
-        }elseif ( $string == $param ) {
+        if (is_array($param)) {
+            $true = in_array($string, $param);
+        } elseif ($string == $param) {
             $true = true;
         }
-        $return='';
-        if ( $true )
+        $return = '';
+        if ($true)
             $return = $type == 'select' ? 'selected="selected"' : 'checked="checked"';
 
         echo $return;
@@ -293,7 +306,8 @@ class Helper
      * @param string $filename 要保存的文件名(不含扩展名)
      * @return mixed 下载成功返回一个描述图片信息的数组，下载失败则返回false
      */
-    static public function downloadImage($url, $filepath, $filename) {
+    static public function downloadImage($url, $filepath, $filename)
+    {
         //服务器返回的头信息
         $responseHeaders = array();
         //原始图片名
@@ -322,7 +336,7 @@ class Helper
             $header = $httpArr[count($httpArr) - 2];
             //倒数第一段是服务器最后一次response的内容
             $body = $httpArr[count($httpArr) - 1];
-            $header.="\r\n";
+            $header .= "\r\n";
 
             //获取最后一次response的header信息
             preg_match_all('/([a-z0-9-_]+):\s*([^\r\n]+)\r\n/i', $header, $matches);
@@ -347,11 +361,11 @@ class Helper
             //保存文件
             if (!empty($ext)) {
                 //如果目录不存在，则先要创建目录
-                if(!is_dir($filepath)){
+                if (!is_dir($filepath)) {
                     mkdir($filepath, 0777, true);
                 }
 
-                $filepath .= '/'.$filename.".$ext";
+                $filepath .= '/' . $filename . ".$ext";
                 $local_file = fopen($filepath, 'w');
                 if (false !== $local_file) {
                     if (false !== fwrite($local_file, $body)) {
@@ -382,4 +396,36 @@ class Helper
         array_multisort($arrSort[$field], constant($sort), $array);
         return $array;
     }
+
+    /*
+    * array unique_rand( int $min, int $max, int $num )
+    * 生成一定数量的不重复随机数
+    * $min 和 $max: 指定随机数的范围
+    * $num: 指定生成数量
+    *
+    * $arr = unique_rand(1, 25, 16);
+    * sort($arr);
+    * $result = '';
+    * for ($i = 0;
+    * $i < count($arr);
+    * $i++)
+    * {
+    *    $result .= $arr[$i].',';
+    *}
+    *$result = substr($result, 0, -1);
+    *echo $result;
+    */
+    function unique_rand($min, $max, $num)
+    {
+        $count = 0;
+        $return = array();
+        while ($count < $num) {
+            $return[] = mt_rand($min, $max);
+            $return = array_flip(array_flip($return));
+            $count = count($return);
+        }
+        shuffle($return);
+        return $return;
+    }
+
 }
