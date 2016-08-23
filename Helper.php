@@ -428,4 +428,24 @@ class Helper
         return $return;
     }
 
+
+    //记录错误信息，结合register_shutdown_function使用
+    function _rare_shutdown_catch_error(){
+
+        $_error=error_get_last();
+
+        if($_error && in_array($_error['type'],array(E_ERROR,E_WARNING))){
+
+            echo '致命错误:'.$_error['message'].'</br>';
+
+            echo '文件:'.$_error['file'].'</br>';
+
+            echo '在第'.$_error['line'].'行</br>';
+
+        }
+
+    }
+
+//register_shutdown_function("_rare_shutdown_catch_error");
+
 }
