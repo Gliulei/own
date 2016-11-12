@@ -143,3 +143,79 @@ $arr = array(1, 3, 5, 7, 9, 11);
 $inx = binarySearch($arr, 1);
 var_dump($inx);
 
+function php_explode($delim, $str)
+
+{
+
+    if(!$delim){
+
+        return false;
+
+    }
+
+    $delim = strval($delim);
+
+    $str = strval($str);
+
+    if(!$delim || !$str){
+
+        return false;
+
+    }
+
+    $delim_len = strlen($delim);
+
+    $str_len = strlen($str);
+
+    if($delim_len > $str_len){
+
+        return false;
+
+    }
+
+    $ret = array();
+
+    $check_len = $str_len-$delim_len;
+
+    for($p=0,$i=0;$i<=$check_len;){
+
+        $tmp = substr($str,$i,$delim_len);
+
+        if(strcasecmp($tmp,$delim)==0){
+
+            if($i>$p){
+
+                $ret[] = substr($str,$p,$i-$p);
+
+            }else{
+
+                $ret[] = '';
+
+            }
+
+            $i+=$delim_len;
+
+            $p=$i;
+
+        }else{
+
+            ++$i;
+
+        }
+
+    }
+
+    if($p<$i){
+
+        $ret[] = substr($str,$p);
+
+    }else{
+
+        $ret[] = '';
+
+    }
+
+    return $ret;
+
+}
+
