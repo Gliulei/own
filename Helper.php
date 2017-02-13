@@ -460,4 +460,20 @@ class Helper {
         fclose($handle);
     }
 
+    /**
+     * ob_flush|flush用法
+     * @link http://www.laruence.com/2010/04/15/1414.html
+     */
+    public function flush() {
+        echo str_pad('', 4096);
+
+        set_time_limit(50);
+        for ($i = 0; $i <= 5; $i++) {
+            echo $i . '<br />';
+            ob_flush();
+            flush();
+            sleep(1);
+        }
+    }
+
 }
