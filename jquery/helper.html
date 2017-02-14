@@ -1,0 +1,45 @@
+<html>
+<style>
+    .csv-file {
+        position: absolute;
+        top: 0;
+        right: 80px;
+        height: 36px;
+        filter: alpha(opacity:0);
+        opacity: 0;
+        width: 120px;
+        left: 0;
+    }
+</style>
+    <head></head>
+    <body>
+
+    <!--美化上传文件input-->
+    <div id="uploadFile" class="filter-block" style="position: relative;">
+        <button type="button" class="btn btn-main btn-sm">上传csv</button>
+        <input  type="file" id="file" class="csv-file" size="28">
+    </div>
+    <script>
+        //formdata上传文件
+        $("#file").on("change", function(){
+            var formData = new FormData();
+            formData.append("file", $("#file")[0].files[0]);
+            $.ajax({
+                url: "batchImport",
+                type: "POST",
+                data: formData,
+                processData: false, // processData: false 不要对data参数进行序列化处理，默认为true
+                contentType: false, //contentType: false 不要设置Content-Type请求头，因为文件数据是以 multipart/form-data 来编码
+                success: function(res){
+                    if(res.ec == 200) {
+                        $.tip('成功','success');
+                        location.reload();
+                    } else {
+                        $.tip(res.em,'error');
+                    }
+                }
+            });
+        });
+    </script>
+    </body>
+</html>

@@ -461,7 +461,8 @@ class Helper {
     }
 
     /**
-     * ob_flush|flush用法
+     * ob_flush|flush用法 ob_flush是刷新php buffer到可输出状态
+     * flush是把可输出的数刷新到浏览器 也就是webserver 两个必须一块用才有效果
      * @link http://www.laruence.com/2010/04/15/1414.html
      */
     public function flush() {
