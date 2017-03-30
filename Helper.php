@@ -5,14 +5,12 @@
  * @author www.shouce.ren
  *
  */
-class Helper
-{
+class Helper {
     /**
      * 判断当前服务器系统
      * @return string
      */
-    public static function getOS()
-    {
+    public static function getOS() {
         if (PATH_SEPARATOR == ':') {
             return 'Linux';
         } else {
@@ -24,8 +22,7 @@ class Helper
      * 当前微妙数
      * @return number
      */
-    public static function microtime_float()
-    {
+    public static function microtime_float() {
         list ($usec, $sec) = explode(" ", microtime());
         return (( float )$usec + ( float )$sec);
     }
@@ -37,8 +34,7 @@ class Helper
      * @version v1.0.0
      *
      */
-    public static function truncate_utf8_string($string, $length, $etc = '...')
-    {
+    public static function truncate_utf8_string($string, $length, $etc = '...') {
         $result = '';
         $string = html_entity_decode(trim(strip_tags($string)), ENT_QUOTES, 'UTF-8');
         $strlen = strlen($string);
@@ -68,11 +64,10 @@ class Helper
      * @param boolean $all true表示递归遍历
      * @return array
      */
-    public static function scanfDir($dir = '', $all = false, &$ret = array())
-    {
+    public static function scanfDir($dir = '', $all = false, &$ret = []) {
         if (false !== ($handle = opendir($dir))) {
             while (false !== ($file = readdir($handle))) {
-                if (!in_array($file, array('.', '..', '.git', '.gitignore', '.svn', '.htaccess', '.buildpath', '.project'))) {
+                if (!in_array($file, ['.', '..', '.git', '.gitignore', '.svn', '.htaccess', '.buildpath', '.project'])) {
                     $cur_path = $dir . '/' . $file;
                     if (is_dir($cur_path)) {
                         $ret['dirs'][] = $cur_path;
@@ -94,8 +89,7 @@ class Helper
      * @param string $message
      * @return boolean
      */
-    public static function sendMail($toemail = '', $subject = '', $message = '')
-    {
+    public static function sendMail($toemail = '', $subject = '', $message = '') {
         $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
 
         //邮件配置
@@ -146,15 +140,14 @@ class Helper
      * @param string $default
      * @return string
      */
-    public static function utf8_gb2312($str, $default = 'gb2312')
-    {
+    public static function utf8_gb2312($str, $default = 'gb2312') {
         $str = preg_replace("/[\x01-\x7F]+/", "", $str);
         if (empty($str)) return $default;
 
-        $preg = array(
+        $preg = [
             "gb2312" => "/^([\xA1-\xF7][\xA0-\xFE])+$/", //正则判断是否是gb2312
-            "utf-8" => "/^[\x{4E00}-\x{9FA5}]+$/u", //正则判断是否是汉字(utf8编码的条件了)，这个范围实际上已经包含了繁体中文字了
-        );
+            "utf-8"  => "/^[\x{4E00}-\x{9FA5}]+$/u", //正则判断是否是汉字(utf8编码的条件了)，这个范围实际上已经包含了繁体中文字了
+        ];
 
         if ($default == 'gb2312') {
             $option = 'utf-8';
@@ -180,8 +173,7 @@ class Helper
      * @param string $outEncoding
      * @return unknown|string
      */
-    public static function safeEncoding($string, $outEncoding = 'UTF-8')
-    {
+    public static function safeEncoding($string, $outEncoding = 'UTF-8') {
         $encoding = "UTF-8";
         for ($i = 0; $i < strlen($string); $i++) {
             if (ord($string{$i}) < 128)
@@ -222,9 +214,8 @@ class Helper
      * @param string $key
      * @return array
      */
-    public static function array_key_values($array = array(), $key = '')
-    {
-        $ret = array();
+    public static function array_key_values($array = [], $key = '') {
+        $ret = [];
         foreach ((array)$array as $k => $v) {
             $ret[$k] = $v[$key];
         }
@@ -237,8 +228,7 @@ class Helper
      * @param string $file 文件/目录
      * @return boolean
      */
-    public static function is_writeable($file)
-    {
+    public static function is_writeable($file) {
         if (is_dir($file)) {
             $dir = $file;
             if ($fp = @fopen("$dir/test.txt", 'w')) {
@@ -263,9 +253,8 @@ class Helper
     /**
      * 格式化单位
      */
-    static public function byteFormat($size, $dec = 2)
-    {
-        $a = array("B", "KB", "MB", "GB", "TB", "PB");
+    static public function byteFormat($size, $dec = 2) {
+        $a = ["B", "KB", "MB", "GB", "TB", "PB"];
         $pos = 0;
         while ($size >= 1024) {
             $size /= 1024;
@@ -283,8 +272,7 @@ class Helper
      * selected checked
      * @return string
      */
-    static public function selected($string, $param = 1, $type = 'select')
-    {
+    static public function selected($string, $param = 1, $type = 'select') {
 
         $true = false;
         if (is_array($param)) {
@@ -306,10 +294,9 @@ class Helper
      * @param string $filename 要保存的文件名(不含扩展名)
      * @return mixed 下载成功返回一个描述图片信息的数组，下载失败则返回false
      */
-    static public function downloadImage($url, $filepath, $filename)
-    {
+    static public function downloadImage($url, $filepath, $filename) {
         //服务器返回的头信息
-        $responseHeaders = array();
+        $responseHeaders = [];
         //原始图片名
         $originalfilename = '';
         //图片的后缀名
@@ -371,7 +358,7 @@ class Helper
                     if (false !== fwrite($local_file, $body)) {
                         fclose($local_file);
                         $sizeinfo = getimagesize($filepath);
-                        return array('filepath' => realpath($filepath), 'width' => $sizeinfo[0], 'height' => $sizeinfo[1], 'orginalfilename' => $originalfilename, 'filename' => pathinfo($filepath, PATHINFO_BASENAME));
+                        return ['filepath' => realpath($filepath), 'width' => $sizeinfo[0], 'height' => $sizeinfo[1], 'orginalfilename' => $originalfilename, 'filename' => pathinfo($filepath, PATHINFO_BASENAME)];
                     }
                 }
             }
@@ -385,9 +372,8 @@ class Helper
      * @params string $field 排序的字段
      * @params string $sort 排序顺序标志 SORT_DESC 降序；SORT_ASC 升序
      */
-    function arraySequence($array, $field, $sort = 'SORT_DESC')
-    {
-        $arrSort = array();
+    function arraySequence($array, $field, $sort = 'SORT_DESC') {
+        $arrSort = [];
         foreach ($array as $uniqid => $row) {
             foreach ($row as $key => $value) {
                 $arrSort[$key][$uniqid] = $value;
@@ -415,10 +401,9 @@ class Helper
     *$result = substr($result, 0, -1);
     *echo $result;
     */
-    function unique_rand($min, $max, $num)
-    {
+    function unique_rand($min, $max, $num) {
         $count = 0;
-        $return = array();
+        $return = [];
         while ($count < $num) {
             $return[] = mt_rand($min, $max);
             $return = array_flip(array_flip($return));
@@ -430,22 +415,66 @@ class Helper
 
 
     //记录错误信息，结合register_shutdown_function使用
-    function _rare_shutdown_catch_error(){
+    function _rare_shutdown_catch_error() {
 
-        $_error=error_get_last();
+        $_error = error_get_last();
 
-        if($_error && in_array($_error['type'],array(E_ERROR,E_WARNING))){
+        if ($_error && in_array($_error['type'], [E_ERROR, E_WARNING])) {
 
-            echo '致命错误:'.$_error['message'].'</br>';
+            echo '致命错误:' . $_error['message'] . '</br>';
 
-            echo '文件:'.$_error['file'].'</br>';
+            echo '文件:' . $_error['file'] . '</br>';
 
-            echo '在第'.$_error['line'].'行</br>';
+            echo '在第' . $_error['line'] . '行</br>';
 
         }
 
     }
 
 //register_shutdown_function("_rare_shutdown_catch_error");
+    /**
+     * 导出数据到csv文件 最新统一版
+     * @param $file_name
+     * @param $datas
+     */
+    protected function exportDataToCsv($file_name, $datas) {
+        $filename = $file_name . '.csv';
+        header("Content-type: application/octet-stream");
+        //处理中文文件名
+        $ua = $_SERVER["HTTP_USER_AGENT"];
+        $encoded_filename = rawurlencode($filename);
+        if (preg_match("/MSIE/", $ua)) {
+            header('Content-Disposition: attachment; filename="' . $encoded_filename . '"');
+        } else if (preg_match("/Firefox/", $ua)) {
+            header("Content-Disposition: attachment; filename*=\"utf8''" . $filename . '"');
+        } else {
+            header('Content-Disposition: attachment; filename="' . $filename . '"');
+        }
+        $handle = fopen('php://output', 'r+');
+        fputs($handle, chr(239) . chr(187) . chr(191));
+        if (!empty($datas)) {
+            foreach ($datas as $line) {
+                fputcsv($handle, $line);
+            }
+        }
+        fclose($handle);
+    }
+
+    /**
+     * ob_flush|flush用法 ob_flush是刷新php buffer到可输出状态
+     * flush是把可输出的数刷新到浏览器 也就是webserver 两个必须一块用才有效果
+     * @link http://www.laruence.com/2010/04/15/1414.html http://www.cnblogs.com/godok/p/6341300.html
+     */
+    public function flush() {
+        echo str_pad('', 4096);
+
+        set_time_limit(50);
+        for ($i = 0; $i <= 5; $i++) {
+            echo $i . '<br />';
+            ob_flush();
+            flush();
+            sleep(1);
+        }
+    }
 
 }

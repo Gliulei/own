@@ -10,9 +10,8 @@
 //较小的往上冒。即，每当两相邻的数比较后发现它们的排序与排序要求相反时，就将它们互换。
 //时间复杂度 O(n2)
 //代码实现：
-$arr = array(1, 43, 54, 62, 21, 66, 32, 78, 36, 76, 39);
-function bubbleSort($arr)
-{
+$arr = [1, 43, 54, 62, 21, 66, 32, 78, 36, 76, 39];
+function bubbleSort($arr) {
     $len = count($arr);
     //该层循环控制 需要冒泡的轮数
     for ($i = 1; $i < $len; $i++) { //该层循环用来控制每轮 冒出一个数 需要比较的次数
@@ -32,8 +31,7 @@ function bubbleSort($arr)
 //如此循环到倒数第二个数和最后一个数比较为止。
 //时间复杂度 o(n2)
 //代码实现：
-function selectSort($arr)
-{
+function selectSort($arr) {
 //双重循环完成，外层控制轮数，内层控制比较次数
     $len = count($arr);
     for ($i = 0; $i < $len - 1; $i++) {
@@ -63,8 +61,7 @@ function selectSort($arr)
 //使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
 //
 //代码实现：
-function insertSort($arr)
-{
+function insertSort($arr) {
     $len = count($arr);
     for ($i = 1; $i < $len; $i++) {
         $tmp = $arr[$i];
@@ -88,8 +85,7 @@ function insertSort($arr)
 //一部分比基准元素小，一部分大于等于基准元素。此时基准元素在其排好序后的正确位置，然后再用同样的方法递归地排序划分的两部分。
 //时间复杂度O(nlog2n)
 //代码实现：
-function quickSort($arr)
-{
+function quickSort($arr) {
     //先判断是否需要继续进行
     $length = count($arr);
     if ($length <= 1) {
@@ -99,8 +95,8 @@ function quickSort($arr)
     $base_num = $arr[0];
     //遍历除了标尺外的所有元素，按照大小关系放入两个数组内
     //初始化两个数组
-    $left_array = array();  //小于基准的
-    $right_array = array();  //大于基准的
+    $left_array = [];  //小于基准的
+    $right_array = [];  //大于基准的
     for ($i = 1; $i < $length; $i++) {
         if ($base_num > $arr[$i]) {
             //放入左边数组
@@ -114,14 +110,13 @@ function quickSort($arr)
     $left_array = quickSort($left_array);
     $right_array = quickSort($right_array);
     //合并
-    return array_merge($left_array, array($base_num), $right_array);
+    return array_merge($left_array, [$base_num], $right_array);
 }
 
 //二分查找需要数组有序,效率为O(logn)
 //复制代码
 //二分查找
-function binarySearch(Array $arr, $target)
-{
+function binarySearch(Array $arr, $target) {
     $low = 0;
     $high = count($arr) - 1;
 
@@ -139,15 +134,13 @@ function binarySearch(Array $arr, $target)
     return false;
 }
 
-$arr = array(1, 3, 5, 7, 9, 11);
+$arr = [1, 3, 5, 7, 9, 11];
 $inx = binarySearch($arr, 1);
 var_dump($inx);
 
-function php_explode($delim, $str)
+function php_explode($delim, $str) {
 
-{
-
-    if(!$delim){
+    if (!$delim) {
 
         return false;
 
@@ -157,7 +150,7 @@ function php_explode($delim, $str)
 
     $str = strval($str);
 
-    if(!$delim || !$str){
+    if (!$delim || !$str) {
 
         return false;
 
@@ -167,37 +160,37 @@ function php_explode($delim, $str)
 
     $str_len = strlen($str);
 
-    if($delim_len > $str_len){
+    if ($delim_len > $str_len) {
 
         return false;
 
     }
 
-    $ret = array();
+    $ret = [];
 
-    $check_len = $str_len-$delim_len;
+    $check_len = $str_len - $delim_len;
 
-    for($p=0,$i=0;$i<=$check_len;){
+    for ($p = 0, $i = 0; $i <= $check_len;) {
 
-        $tmp = substr($str,$i,$delim_len);
+        $tmp = substr($str, $i, $delim_len);
 
-        if(strcasecmp($tmp,$delim)==0){
+        if (strcasecmp($tmp, $delim) == 0) {
 
-            if($i>$p){
+            if ($i > $p) {
 
-                $ret[] = substr($str,$p,$i-$p);
+                $ret[] = substr($str, $p, $i - $p);
 
-            }else{
+            } else {
 
                 $ret[] = '';
 
             }
 
-            $i+=$delim_len;
+            $i += $delim_len;
 
-            $p=$i;
+            $p = $i;
 
-        }else{
+        } else {
 
             ++$i;
 
@@ -205,11 +198,11 @@ function php_explode($delim, $str)
 
     }
 
-    if($p<$i){
+    if ($p < $i) {
 
-        $ret[] = substr($str,$p);
+        $ret[] = substr($str, $p);
 
-    }else{
+    } else {
 
         $ret[] = '';
 
