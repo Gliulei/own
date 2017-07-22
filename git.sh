@@ -1,5 +1,7 @@
 #!/bin/bash
-
+cd /Users/MOMO/momo_code/web
+git branch
+exit 0
 read -p "请输入备注：" commit_content
 git add -A *
 echo "add OK\n"
