@@ -1,5 +1,7 @@
-安装elasticearch环境
+**安装elasticearch环境**
+
 1.需要java环境
+
 2.官网下载对应系统jdk 安装就可
 
 3.下载elastisearch
@@ -7,6 +9,7 @@
 ./elasticsearch -d
 
 4.curl -XGET http://localhost:9200/
+<pre>
 {
   "name" : "rskCqGL",
   "cluster_name" : "elasticsearch",
@@ -20,4 +23,5 @@
   },
   "tagline" : "You Know, for Search"
 }
+</pre>
 看到json结果集 安装成功
