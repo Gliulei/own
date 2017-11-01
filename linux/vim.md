@@ -6,3 +6,7 @@ http://bbs.feng.com/read-htm-tid-11395603.html
 
 //vim神器
 http://vim.spf13.com/#install
+
+sudo vim /etc/paths
+
+echo $PATH

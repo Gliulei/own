@@ -5,6 +5,9 @@ awk '{a = index($4,"[");b = index($4,"]");print substr($4,a+1,b-a-1)}' workerman
 
 echo "abcdefg" | awk '{split($0,a,"[cf]");print a[2]}'
 
+//读入文件 导入redis中
+cat demo.txt | while read line; do devRedis setbit coreuser_verify_white $line 1; done
+
 1 基本思想之什么是分库分表？
 从字面上简单理解，就是把原本存储于一个库的数据分块存储到多个库上，把原本存储于一个表的数据分块存储到多个表上。
 2 基本思想之为什么要分库分表？
