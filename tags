@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AES	class/AES.php	/^class AES {$/;"	c
+Helper	Helper.php	/^class Helper {$/;"	c
+_error	Helper.php	/^        $_error = error_get_last();$/;"	v
+_rare_shutdown_catch_error	Helper.php	/^    function _rare_shutdown_catch_error() {$/;"	f
+_secret_key	class/AES.php	/^        $this->_secret_key = $key;$/;"	v
+_secret_key	class/AES.php	/^    private $_secret_key = '#@5#!89$';$/;"	v
+a	Helper.php	/^        $a = ["B", "KB", "MB", "GB", "TB", "PB"];$/;"	v
+actionExport	collect.php	/^function actionExport()$/;"	f
+all	Helper.php	/^    public static function scanfDir($dir = '', $all = false, &$ret = []) {$/;"	v
+arr	Helper.php	/^    * $arr = unique_rand(1, 25, 16);$/;"	v
+arr	algorithm/algorithm.php	/^$arr = [1, 3, 5, 7, 9, 11];$/;"	v
+arr	algorithm/algorithm.php	/^$arr = [1, 43, 54, 62, 21, 66, 32, 78, 36, 76, 39];$/;"	v
+arr	algorithm/test.php	/^$arr = [1,3,5,7,9,10,15,18];$/;"	v
+arrSort	Helper.php	/^        $arrSort = [];$/;"	v
+arraySequence	Helper.php	/^    function arraySequence($array, $field, $sort = 'SORT_DESC') {$/;"	f
+array_key_values	Helper.php	/^    public static function array_key_values($array = [], $key = '') {$/;"	f
+base_num	algorithm/algorithm.php	/^    $base_num = $arr[0];$/;"	v
+binarySearch	algorithm/algorithm.php	/^function binarySearch(Array $arr, $target) {$/;"	f
+binarySearch	algorithm/test.php	/^function binarySearch($arr = [],$target)$/;"	f
+body	Helper.php	/^            $body = $httpArr[count($httpArr) - 1];$/;"	v
+bubbleSort	algorithm/algorithm.php	/^function bubbleSort($arr) {$/;"	f
+byteFormat	Helper.php	/^    static public function byteFormat($size, $dec = 2) {$/;"	f
+ch	Helper.php	/^        $ch = curl_init($url);$/;"	v
+char	Helper.php	/^                    $char = $string{++$i};$/;"	v
+char	Helper.php	/^                $char = $string{++$i};$/;"	v
+check_len	algorithm/algorithm.php	/^    $check_len = $str_len - $delim_len;$/;"	v
+count	Helper.php	/^            $count = count($return);$/;"	v
+count	Helper.php	/^        $count = 0;$/;"	v
+cur_path	Helper.php	/^                    $cur_path = $dir . '\/' . $file;$/;"	v
+data	class/AES.php	/^        $data = base64_encode($data);$/;"	v
+data	class/AES.php	/^        $data = mcrypt_generic($td, $input);$/;"	v
+dataList	collect.php	/^    $dataList = array('a'=>'b');$/;"	v
+dec	Helper.php	/^    static public function byteFormat($size, $dec = 2) {$/;"	v
+dec_s	class/AES.php	/^        $dec_s = strlen($decrypted);$/;"	v
+decrypt	class/AES.php	/^    public function decrypt($data) {$/;"	f
+decrypted	class/AES.php	/^        $decrypted = substr($decrypted, 0, -$padding);$/;"	v
+decrypted	class/AES.php	/^        $decrypted= mcrypt_decrypt($/;"	v
+default	Helper.php	/^    public static function utf8_gb2312($str, $default = 'gb2312') {$/;"	v
+delim	algorithm/algorithm.php	/^    $delim = strval($delim);$/;"	v
+delim_len	algorithm/algorithm.php	/^    $delim_len = strlen($delim);$/;"	v
+dir	Helper.php	/^            $dir = $file;$/;"	v
+downloadImage	Helper.php	/^    static public function downloadImage($url, $filepath, $filename) {$/;"	f
+encoded_filename	Helper.php	/^        $encoded_filename = rawurlencode($filename);$/;"	v
+encoding	Helper.php	/^                        $encoding = "UTF-8";$/;"	v
+encoding	Helper.php	/^                    $encoding = "GB2312";$/;"	v
+encoding	Helper.php	/^        $encoding = "UTF-8";$/;"	v
+encrypt	class/AES.php	/^    public function encrypt($data) {$/;"	f
+error	Helper.php	/^            $error = $mailer->ErrorInfo;$/;"	v
+etc	Helper.php	/^    public static function truncate_utf8_string($string, $length, $etc = '...') {$/;"	v
+exportDataToCsv	Helper.php	/^    protected function exportDataToCsv($file_name, $datas) {$/;"	f
+ext	Helper.php	/^                        $ext = $extmatches[1];$/;"	v
+ext	Helper.php	/^                $ext = $matches[1];$/;"	v
+ext	Helper.php	/^        $ext = '';$/;"	v
+filename	Helper.php	/^        $filename = $file_name . '.csv';$/;"	v
+flush	Helper.php	/^    public function flush() {$/;"	f
+getOS	Helper.php	/^    public static function getOS() {$/;"	f
+handle	Helper.php	/^        $handle = fopen('php:\/\/output', 'r+');$/;"	v
+header	Helper.php	/^            $header = $httpArr[count($httpArr) - 2];$/;"	v
+high	algorithm/algorithm.php	/^        if ($arr[$mid] > $target) $high = $mid - 1;$/;"	v
+high	algorithm/algorithm.php	/^    $high = count($arr) - 1;$/;"	v
+high	algorithm/test.php	/^        if($arr[$mid] > $target) $high = $mid - 1;$/;"	v
+high	algorithm/test.php	/^    $high = $length - 1;$/;"	v
+html	Helper.php	/^        $html = curl_exec($ch);$/;"	v
+httpArr	Helper.php	/^            $httpArr = explode("\\r\\n\\r\\n", $html, 2 + $httpinfo['redirect_count']);$/;"	v
+httpinfo	Helper.php	/^        $httpinfo = curl_getinfo($ch);$/;"	v
+i	algorithm/algorithm.php	/^    for ($p = 0, $i = 0; $i <= $check_len;) {$/;"	v
+input	class/AES.php	/^        $input = AES::pkcs5_pad($data, $size);$/;"	v
+insertSort	algorithm/algorithm.php	/^function insertSort($arr) {$/;"	f
+inx	algorithm/algorithm.php	/^$inx = binarySearch($arr, 1);$/;"	v
+is_writeable	Helper.php	/^    public static function is_writeable($file) {$/;"	f
+iv	class/AES.php	/^        $iv = mcrypt_create_iv (mcrypt_enc_get_iv_size($td), MCRYPT_RAND);$/;"	v
+k	Helper.php	/^        foreach ((array)$array as $k => $v) {$/;"	v
+key	Helper.php	/^            foreach ($row as $key => $value) {$/;"	v
+key	Helper.php	/^    public static function array_key_values($array = [], $key = '') {$/;"	v
+left_array	algorithm/algorithm.php	/^    $left_array = [];  \/\/小于基准的$/;"	v
+left_array	algorithm/algorithm.php	/^    $left_array = quickSort($left_array);$/;"	v
+len	algorithm/algorithm.php	/^    $len = count($arr);$/;"	v
+length	algorithm/algorithm.php	/^    $length = count($arr);$/;"	v
+length	algorithm/test.php	/^    $length = count($arr);$/;"	v
+local_file	Helper.php	/^                $local_file = fopen($filepath, 'w');$/;"	v
+low	algorithm/algorithm.php	/^        if ($arr[$mid] < $target) $low = $mid + 1;$/;"	v
+low	algorithm/algorithm.php	/^    $low = 0;$/;"	v
+low	algorithm/test.php	/^        if($arr[$mid] < $target) $low = $mid + 1;$/;"	v
+low	algorithm/test.php	/^    $low = 0;$/;"	v
+mailer	Helper.php	/^        $mailer = Yii::createComponent('application.extensions.mailer.EMailer');$/;"	v
+microtime_float	Helper.php	/^    public static function microtime_float() {$/;"	f
+mid	algorithm/algorithm.php	/^        $mid = floor(($low + $high) \/ 2);$/;"	v
+mid	algorithm/test.php	/^        $mid = floor(($low + $high) \/ 2);$/;"	v
+modelMail	Helper.php	/^        $modelMail = new MailLog ();$/;"	v
+option	Helper.php	/^            $option = 'gb2312';$/;"	v
+option	Helper.php	/^            $option = 'utf-8';$/;"	v
+originalfilename	Helper.php	/^                $originalfilename = $matches[0];$/;"	v
+originalfilename	Helper.php	/^        $originalfilename = '';$/;"	v
+outEncoding	Helper.php	/^    public static function safeEncoding($string, $outEncoding = 'UTF-8') {$/;"	v
+p	algorithm/algorithm.php	/^                $p = $j;$/;"	v
+p	algorithm/algorithm.php	/^            $p = $i;$/;"	v
+p	algorithm/algorithm.php	/^        $p = $i;$/;"	v
+pad	class/AES.php	/^        $pad = $blocksize - (strlen($text) % $blocksize);$/;"	v
+padding	class/AES.php	/^        $padding = ord($decrypted[$dec_s-1]);$/;"	v
+param	Helper.php	/^    static public function selected($string, $param = 1, $type = 'select') {$/;"	v
+php_explode	algorithm/algorithm.php	/^function php_explode($delim, $str) {$/;"	f
+pkcs5_pad	class/AES.php	/^    private static function pkcs5_pad ($text, $blocksize) {$/;"	f
+pos	Helper.php	/^        $pos = 0;$/;"	v
+preg	Helper.php	/^        $preg = [$/;"	v
+quickSort	algorithm/algorithm.php	/^function quickSort($arr) {$/;"	f
+responseHeaders	Helper.php	/^        $responseHeaders = [];$/;"	v
+result	Helper.php	/^        $result = '';$/;"	v
+result	Helper.php	/^        $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');$/;"	v
+result	Helper.php	/^    * $result = '';$/;"	v
+ret	Helper.php	/^        $ret = [];$/;"	v
+ret	algorithm/algorithm.php	/^    $ret = [];$/;"	v
+return	Helper.php	/^            $return = $type == 'select' ? 'selected="selected"' : 'checked="checked"';$/;"	v
+return	Helper.php	/^            $return = array_flip(array_flip($return));$/;"	v
+return	Helper.php	/^        $return = '';$/;"	v
+return	Helper.php	/^        $return = [];$/;"	v
+right_array	algorithm/algorithm.php	/^    $right_array = [];  \/\/大于基准的$/;"	v
+right_array	algorithm/algorithm.php	/^    $right_array = quickSort($right_array);$/;"	v
+safeEncoding	Helper.php	/^    public static function safeEncoding($string, $outEncoding = 'UTF-8') {$/;"	f
+scanfDir	Helper.php	/^    public static function scanfDir($dir = '', $all = false, &$ret = []) {$/;"	f
+selectSort	algorithm/algorithm.php	/^function selectSort($arr) {$/;"	f
+selected	Helper.php	/^    static public function selected($string, $param = 1, $type = 'select') {$/;"	f
+sendMail	Helper.php	/^    public static function sendMail($toemail = '', $subject = '', $message = '') {$/;"	f
+setKey	class/AES.php	/^    public function setKey($key) {$/;"	f
+size	class/AES.php	/^        $size = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_ECB);$/;"	v
+sizeinfo	Helper.php	/^                        $sizeinfo = getimagesize($filepath);$/;"	v
+sort	Helper.php	/^    function arraySequence($array, $field, $sort = 'SORT_DESC') {$/;"	v
+str	Helper.php	/^        $str = @iconv($default, $option, $str);$/;"	v
+str	Helper.php	/^        $str = preg_replace("\/[\\x01-\\x7F]+\/", "", $str);$/;"	v
+str	algorithm/algorithm.php	/^    $str = strval($str);$/;"	v
+str_len	algorithm/algorithm.php	/^    $str_len = strlen($str);$/;"	v
+string	Helper.php	/^        $string = html_entity_decode(trim(strip_tags($string)), ENT_QUOTES, 'UTF-8');$/;"	v
+strlen	Helper.php	/^        $strlen = strlen($string);$/;"	v
+subject	Helper.php	/^    public static function sendMail($toemail = '', $subject = '', $message = '') {$/;"	v
+td	class/AES.php	/^        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_ECB, '');$/;"	v
+tmp	algorithm/algorithm.php	/^                $tmp = $arr[$k + 1];$/;"	v
+tmp	algorithm/algorithm.php	/^            $tmp = $arr[$p];$/;"	v
+tmp	algorithm/algorithm.php	/^        $tmp = $arr[$i];$/;"	v
+tmp	algorithm/algorithm.php	/^        $tmp = substr($str, $i, $delim_len);$/;"	v
+true	Helper.php	/^            $true = in_array($string, $param);$/;"	v
+true	Helper.php	/^            $true = true;$/;"	v
+true	Helper.php	/^        $true = false;$/;"	v
+truncate_utf8_string	Helper.php	/^    public static function truncate_utf8_string($string, $length, $etc = '...') {$/;"	f
+ua	Helper.php	/^        $ua = $_SERVER["HTTP_USER_AGENT"];$/;"	v
+uniqid	Helper.php	/^        foreach ($array as $uniqid => $row) {$/;"	v
+unique_rand	Helper.php	/^    function unique_rand($min, $max, $num) {$/;"	f
+utf8_gb2312	Helper.php	/^    public static function utf8_gb2312($str, $default = 'gb2312') {$/;"	f
+writeable	Helper.php	/^                $writeable = 0;$/;"	v
+writeable	Helper.php	/^                $writeable = 1;$/;"	v
