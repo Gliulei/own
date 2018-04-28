@@ -15,3 +15,5 @@ IdentitiesOnly=yes
 PasswordAuthentication=no 设置是否使用口令验证
 
 IdentityFile= ~/.ssh/identity 设置从哪个文件读取用户的RSA安全验证标识
+
+IdentitiesOnly=yes 只接受SSH key 登录
