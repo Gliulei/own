@@ -1,0 +1,84 @@
+/*
+*FileReader和html5标签process标签上传进度条学习
+*/
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+    .csv-file {
+        position: absolute;
+        top: 0;
+        right: 80px;
+        height: 36px;
+        filter: alpha(opacity:0);
+        opacity: 0;
+        width: 120px;
+        left: 0;
+    }
+</style>
+    <head></head>
+    <body>
+    <form>
+        <fieldset>
+            <legend>分度读取文件：</legend>
+            <input type="file" id="File" />
+            <input type="button" value="中断" id="Abort" />
+            <p></p>
+            <div>
+                读取进度：<span id="percent"></span>
+                <div>
+                <progress id="Progress" value="0" max="100"></progress>
+                </div>
+            </div>
+            <p id="Status"></p>
+        </fieldset>
+    </form>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        /*
+        * FileReader提供了如下方法：
+         readAsArrayBuffer(file)	按字节读取文件内容，结果用ArrayBuffer对象表示
+         readAsBinaryString(file)	按字节读取文件内容，结果为文件的二进制串
+         readAsDataURL(file)	读取文件内容，结果用data:url的字符串形式表示
+         readAsText(file,encoding)	按字符读取文件内容，结果用字符串形式表示
+         abort()	终止文件读取操作
+         */
+        /*var inputBox = document.getElementById("inputBox");
+        var img = document.getElementById("img");
+        inputBox.addEventListener("change",function(){
+            var reader = new FileReader();
+            reader.readAsDataURL(inputBox.files[0]);//发起异步请求
+            console.log(inputBox.files[0]);
+            reader.onload = function(){
+                //读取完成后，将结果赋值给img的src
+                img.src = this.result
+            }
+        })*/
+        var inputBox = document.getElementById("File");
+        var progress = document.getElementById('Progress');
+        var count=0;
+        inputBox.addEventListener("change",function(){
+            var reader = new FileReader();
+            reader.readAsText(inputBox.files[0]);//发起异步请求
+            reader.onload = function(){
+                console.log("onload")
+            };
+            reader.onloadstart = function(){
+                console.log("onloadstart")
+            };
+            reader.onloadend= function(){
+                console.log("onloadend")
+            };
+            reader.onprogress = function(e){
+                progress.value = (e.loaded / e.total) * 100;
+                value = (e.loaded / e.total) * 100;
+                value = Math.round(value);
+                value = value + '%';
+                $("#percent").html(value);
+            };
+        })
+
+
+    </script>
+    </body>
+</html>
