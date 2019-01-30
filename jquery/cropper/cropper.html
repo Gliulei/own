@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <!-- <h3>Demo:</h3> -->
+                <img id="image" src="image-001.jpeg">
+        </div>
+        <div class="col-md-3">
+            <!-- <h3>Data:</h3> -->
+            <div class="docs-data">
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataX">X</label>
+            </span>
+                    <input type="text" class="form-control" id="dataX" placeholder="x">
+                    <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataY">Y</label>
+            </span>
+                    <input type="text" class="form-control" id="dataY" placeholder="y">
+                    <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataWidth">Width</label>
+            </span>
+                    <input type="text" class="form-control" id="dataWidth" placeholder="width">
+                    <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataHeight">Height</label>
+            </span>
+                    <input type="text" class="form-control" id="dataHeight" placeholder="height">
+                    <span class="input-group-append">
+              <span class="input-group-text">px</span>
+            </span>
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataRotate">Rotate</label>
+            </span>
+                    <input type="text" class="form-control" id="dataRotate" placeholder="rotate">
+                    <span class="input-group-append">
+              <span class="input-group-text">deg</span>
+            </span>
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataScaleX">ScaleX</label>
+            </span>
+                    <input type="text" class="form-control" id="dataScaleX" placeholder="scaleX">
+                </div>
+                <div class="input-group input-group-sm">
+            <span class="input-group-prepend">
+              <label class="input-group-text" for="dataScaleY">ScaleY</label>
+            </span>
+                    <input type="text" class="form-control" id="dataScaleY" placeholder="scaleY">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script><!-- jQuery is required -->
+<script src="./node_modules/cropperjs/dist/cropper.min.js"></script><!-- Cropper.js is required -->
+<link  href="./node_modules/cropperjs/dist/cropper.min.css" rel="stylesheet">
+<script src="./node_modules/jquery-cropper/dist/jquery-cropper.min.js"></script>
+<script src="js/main.js"></script>
+</html>
