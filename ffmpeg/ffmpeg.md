@@ -54,6 +54,24 @@ ffplay -f rawvideo -video_size 1920x1080 input.yuv
 ffmpeg –s w*h –pix_fmt yuv420p –i input.yuv –vcodec mpeg4 output.avi
 ```
 
+9.视频中提取图片
+```
+ffmpeg -i "你是我的小呀小苹果儿.mp4" -r 1 -q:v 2 -f image2 image-3%d.jpeg
+-i选项用来获取输入文件，在这里是视频文件名你是我的小呀小苹果儿.mp4，-r选项设置每秒提取图片的帧数。我想要每秒提取一帧。
+
+之后有一个重要的选项是-q:v，应该留意这个选项并且我很喜欢用它，它用来设置提取到的图片质量。我总是设置值为2来从视频中获取高质量图片
+```
+
+10.去掉视频的logo
+```
+语法：-vf delogo=x:y:w:h[:t[:show]] 
+x:y 离左上角的坐标 
+w:h logo的宽和高 
+t: 矩形边缘的厚度默认值4 
+show：若设置为1有一个绿色的矩形，默认值0。
+
+ffmpeg -i video_mobile.mp4 -vf delogo=750:14:195:52:1 outpu_video_mobilet.mp4
+```
 ####常用参数说明：
 
 主要参数：
