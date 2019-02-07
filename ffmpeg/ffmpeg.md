@@ -70,6 +70,7 @@ w:h logo的宽和高
 t: 矩形边缘的厚度默认值4 
 show：若设置为1有一个绿色的矩形，默认值0。
 
+499:10:134:40
 ffmpeg -i video_mobile.mp4 -vf delogo=750:14:195:52:1 outpu_video_mobilet.mp4
 ```
 ####常用参数说明：
