@@ -1,3 +1,11 @@
+#### PSR 是 PHP Standard Recommendation 的简写，即PHP推荐标准。
+
+目前通过的规范有 PSR-0(Autoloading Standard)、PSR-1(Basic Coding Standard)、PSR-2(Coding Style Guide)、PSR-3(Logger Interface)、PSR-4(Improved Autoloading)。
+
+PSR 不是PHP官方标准，而是从如Zend、Symfony2等知名PHP项目中提炼出来的一系列标准，目前有越来越多的社区项目加入并遵循该标准。
+
+PHP FIG（Framework Interoperability Group）框架可互用性小组是制定PSR开发规范的组织。他们的目的在于以最低程度的限制制定一个统一的标准，让各个框架遵循统一的编码规范。
+
 #### PSR-1（基本代码规范
 
 PSR-1(Basic Coding Standard)基本代码规范，用以确保共享的PHP代码间具有较高程度的技术互通性。
