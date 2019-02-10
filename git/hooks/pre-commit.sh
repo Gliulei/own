@@ -118,7 +118,7 @@ done < <(git diff --cached --name-status --diff-filter=ACM)
 
 if [ "$SYMFONYVAL" -eq "1" ];
 then
-    echo -e "\n\033[32m 使用 $PHP_CS_FIXER fix --rules $CONFIG_FILE_PARAMETER --diff [<path>] 来格式化未通过编码规范检查的代码\033[0m"
+    echo -e "\n\033[32m 使用 $PHP_CS_FIXER fix [<path>] --rules $CONFIG_FILE_PARAMETER --diff  来格式化未通过编码规范检查的代码\033[0m"
 fi
 
 exit $RETVAL
