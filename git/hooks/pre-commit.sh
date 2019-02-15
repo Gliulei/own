@@ -6,7 +6,8 @@ SYMFONYVAL=0
 EXECUTABLE_NAME=php-cs-fixer
 EXECUTABLE_COMMAND=fix
 CONFIG_FILE=.php_cs
-CONFIG_FILE_PARAMETER='@Symfony'
+#CONFIG_FILE_PARAMETER='@Symfony'
+CONFIG_FILE_PARAMETER='@PSR1'
 ROOT=`pwd`
 
 locations=(
@@ -98,7 +99,7 @@ do
 
       if echo $file | $PHP_CS_FIXER_FILE_FILTER > /dev/null
       then
-          if [ "$FILERET" -eq "1" ] || $PHP_CS_FIXER fix $file --rules $CONFIG_FILE_PARAMETER --dry-run | grep '1)' > /dev/null 2>&1;
+          if [ "$FILERET" -eq "1" ] || $PHP_CS_FIXER fix $file --rules $CONFIG_FILE_PARAMETER --dry-run --using-cache=false | grep '1)' > /dev/null 2>&1;
           then
               echo -en "PHP Coding Standards Check: \033[31m false \033[0m"
               RETVAL=1
