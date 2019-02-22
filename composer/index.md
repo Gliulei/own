@@ -21,3 +21,8 @@ composer update nmred/kafka-php
 
 所以如果不提交tag的话  可能导致你的  包无法使用composer安装
 http://www.mamicode.com/info-detail-1449764.html
+
+#### 参数
+```
+dump-autoload :执行此命令会把自动加载写入自动加载的配置文件中
+```
