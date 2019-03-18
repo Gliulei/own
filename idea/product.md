@@ -5,3 +5,12 @@
 #### 说话排行榜
 
 > 群里说话排行榜 历史记录 看看谁吹的多
+
+
+#### 技术网站
+- [github](http://github.com)
+- [思否](https://segmentfault.com/)
+- [伯乐在线](http://www.jobbole.com/)
+- [掘金](https://juejin.im/)
+- [开发者头条](https://toutiao.io/)
+- [开源中国](https://www.oschina.net/)
