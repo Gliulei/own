@@ -1,6 +1,6 @@
 ## 日常工作技术积累
 ### 直达
-* [个人介绍](about me/about.md)
+* [个人介绍](me/about.md)
 * [php](php)
 * [redis](redis)
 * [mysql](mysql)
