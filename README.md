@@ -1,5 +1,6 @@
 ## 日常工作技术积累
 ### 直达
+* [个人介绍](about/about.md)
 * [php](php)
 * [redis](redis)
 * [mysql](mysql)
@@ -16,4 +17,3 @@
 * [frontend](frontend)
 * [node](node)
 * [jquery](jquery)
-* [个人介绍](abount/abount.md)
