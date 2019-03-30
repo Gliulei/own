@@ -4,6 +4,7 @@
 #### 关于PHP程序员解决问题的能力
 
 * [韩天峰博客](http://rango.swoole.com/archives/340)
+* [斜杠猿日志](http://www.80soho.com/?p=560)
 
 
 高级php程序员具备的能力
