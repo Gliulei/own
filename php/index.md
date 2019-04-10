@@ -9,6 +9,9 @@
 
 #### 源码视频
 + [垃圾回收](http://replay.xesv5.com/ll/2480/f7af4b766c7c38f937f24fc82061bb8e.flv.mp4)
++ [视频集合](https://segmentfault.com/a/1190000018488313)
++ [---](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92712)
++ [网络包 给fastcgi协议开个头](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92803)
 + [fastcgi协议](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92901)
 
 高级php程序员具备的能力
