@@ -13,6 +13,7 @@
 + [---](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92712)
 + [网络包 给fastcgi协议开个头](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92803)
 + [fastcgi协议](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92901)
++ [内存管理](https://biglive.xueersi.com/LivePlayBack/index/2-7155-93080)
 
 高级php程序员具备的能力
 
