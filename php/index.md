@@ -14,6 +14,7 @@
 + [网络包 给fastcgi协议开个头](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92803)
 + [fastcgi协议](https://biglive.xueersi.com/LivePlayBack/index/2-7155-92901)
 + [内存管理](https://biglive.xueersi.com/LivePlayBack/index/2-7155-93080)
++ [C栈和PHP递归调用push和pop stack的过程](https://biglive.xueersi.com/LivePlayBack/index/2-2480-93250)
 
 高级php程序员具备的能力
 
