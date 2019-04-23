@@ -18,5 +18,5 @@ rsync --verbose --compress --progress --out-format="Receiving %n" -e \
          -o StrictHostKeyChecking=no \
          -o PasswordAuthentication=no \
          -o IdentityFile=/Sites/piplin/storage/app/sshkey7oVA2p" \
-    /Sites/piplin/storage/app/1_20180502082836.tar.gz momo@172.16.249.135:/var/www/app/1_20180502082836.tar.gz
+    /Sites/piplin/storage/app/1_20180502082836.tar.gz user@172.16.249.135:/var/www/app/1_20180502082836.tar.gz
 ```
