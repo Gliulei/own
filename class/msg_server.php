@@ -1,10 +1,9 @@
 <?php
 /**
- * @author liu.lei_1206 <liu.lei_1206@immomo.com>
  * @since  2019-04-23
  */
 
-$key = 353141087;
+$key = 111111;
 /* Connect to message queue */
 if (($msg_queue = msg_get_queue($key)) === false) {
     die("msg_get_queue");
