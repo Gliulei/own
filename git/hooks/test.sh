@@ -2,7 +2,7 @@
 ROOT=`pwd`
 
 echo $ROOT
-cd /Users/MOMO/momo_code/web
+cd dir
 while read -r file;
 do
     op=${file:0:1}
