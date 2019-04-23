@@ -5,7 +5,6 @@
  * 直到达到桶的容量，多余的令牌将会被丢弃。每当一个请求过来时，就会尝试从桶里移除一个令牌，
  * 如果没有令牌的话，请求无法通 过。
  *
- * @author liu.lei_1206 <liu.lei_1206@immomo.com>
  * @since  2019-01-01
  */
 class TokenBucket {

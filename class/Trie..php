@@ -3,7 +3,6 @@
 /**
  * Trie 树
  * 用于词频统计、字符串查询和模糊匹配（比如关键词的模糊匹配）、字符串排序等任务。
- * @author liu.lei_1206 <liu.lei_1206@immomo.com>
  * @since  2018-12-24
  */
 class Trie {
