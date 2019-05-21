@@ -1,5 +1,6 @@
 <?php
 /**
+ * https://zhidao.baidu.com/question/198877206.html
  * Created by PhpStorm.
  * User: liulei
  * Date: 16/9/21
@@ -59,6 +60,7 @@ function selectSort($arr) {
 //3.插入排序
 //思路分析：在要排序的一组数中，假设前面的数已经是排好顺序的，现在要把第n个数插到前面的有序数中，
 //使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
+//时间复杂度 o(n2)
 //
 //代码实现：
 function insertSort($arr) {
@@ -83,7 +85,7 @@ function insertSort($arr) {
 //4.快速排序
 //思路分析：选择一个基准元素，通常选择第一个元素或者最后一个元素。通过一趟扫描，将待排序列分成两部分，
 //一部分比基准元素小，一部分大于等于基准元素。此时基准元素在其排好序后的正确位置，然后再用同样的方法递归地排序划分的两部分。
-//时间复杂度O(nlog2n)
+//时间复杂度平均O(nlogn) 最好O(nlog2n) 最坏(O(n2))
 //代码实现：
 function quickSort($arr) {
     //先判断是否需要继续进行
