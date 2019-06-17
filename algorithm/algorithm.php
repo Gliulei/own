@@ -18,12 +18,13 @@ function bubbleSort($arr) {
     for ($i = 1; $i < $len; $i++) { //该层循环用来控制每轮 冒出一个数 需要比较的次数
         for ($k = 0; $k < $len - $i; $k++) {
             if ($arr[$k] > $arr[$k + 1]) {
-                $tmp = $arr[$k + 1];
+                $tmp         = $arr[$k + 1];
                 $arr[$k + 1] = $arr[$k];
-                $arr[$k] = $tmp;
+                $arr[$k]     = $tmp;
             }
         }
     }
+
     return $arr;
 }
 
@@ -33,7 +34,7 @@ function bubbleSort($arr) {
 //时间复杂度 o(n2)
 //代码实现：
 function selectSort($arr) {
-//双重循环完成，外层控制轮数，内层控制比较次数
+    //双重循环完成，外层控制轮数，内层控制比较次数
     $len = count($arr);
     for ($i = 0; $i < $len - 1; $i++) {
         //先假设最小的值的位置
@@ -48,11 +49,12 @@ function selectSort($arr) {
         }
         //已经确定了当前的最小值的位置，保存到$p中。如果发现最小值的位置与当前假设的位置$i不同，则位置互换即可。
         if ($p != $i) {
-            $tmp = $arr[$p];
+            $tmp     = $arr[$p];
             $arr[$p] = $arr[$i];
             $arr[$i] = $tmp;
         }
     }
+
     //返回最终结果
     return $arr;
 }
@@ -72,13 +74,14 @@ function insertSort($arr) {
             if ($tmp < $arr[$j]) {
                 //发现插入的元素要小，交换位置，将后边的元素与前面的元素互换
                 $arr[$j + 1] = $arr[$j];
-                $arr[$j] = $tmp;
+                $arr[$j]     = $tmp;
             } else {
                 //如果碰到不需要移动的元素，由于是已经排序好是数组，则前面的就不需要再次比较了。
                 break;
             }
         }
     }
+
     return $arr;
 }
 
@@ -97,7 +100,7 @@ function quickSort($arr) {
     $base_num = $arr[0];
     //遍历除了标尺外的所有元素，按照大小关系放入两个数组内
     //初始化两个数组
-    $left_array = [];  //小于基准的
+    $left_array  = [];  //小于基准的
     $right_array = [];  //大于基准的
     for ($i = 1; $i < $length; $i++) {
         if ($base_num > $arr[$i]) {
@@ -109,8 +112,9 @@ function quickSort($arr) {
         }
     }
     //再分别对左边和右边的数组进行相同的排序处理方式递归调用这个函数
-    $left_array = quickSort($left_array);
+    $left_array  = quickSort($left_array);
     $right_array = quickSort($right_array);
+
     //合并
     return array_merge($left_array, [$base_num], $right_array);
 }
@@ -119,17 +123,23 @@ function quickSort($arr) {
 //复制代码
 //二分查找
 function binarySearch(Array $arr, $target) {
-    $low = 0;
+    $low  = 0;
     $high = count($arr) - 1;
 
     while ($low <= $high) {
         $mid = floor(($low + $high) / 2);
         #找到元素
-        if ($arr[$mid] == $target) return $mid;
+        if ($arr[$mid] == $target) {
+            return $mid;
+        }
         #中元素比目标大,查找左部
-        if ($arr[$mid] > $target) $high = $mid - 1;
+        if ($arr[$mid] > $target) {
+            $high = $mid - 1;
+        }
         #重元素比目标小,查找右部
-        if ($arr[$mid] < $target) $low = $mid + 1;
+        if ($arr[$mid] < $target) {
+            $low = $mid + 1;
+        }
     }
 
     #查找失败
@@ -213,4 +223,36 @@ function php_explode($delim, $str) {
     return $ret;
 
 }
+
+/*归并排序 本质上是一种分治算法的解法
+*分治法的解法，就是对于一个规模较大的问题，将其分解为好多个规模较小的子问题，这些子问题的求解不会互相影响，
+ 并且与原问题形式相同。 然后递归地去求解解这些子问题，然后将各子问题的解，进行合并，得到原问题的解。
+*/
+function merge($arr, $brr) {
+    $tem = [];
+    while (count($arr) && count($brr)) {
+        $tem[] = $arr[0] < $brr[0] ? array_shift($arr) : array_shift($brr);
+    }
+
+    return array_merge($tem, $arr, $brr);
+}
+
+function msort($arr) {
+    $len = count($arr);
+    if ($len <= 1) {
+        return $arr;
+    }
+    $m     = floor(count($arr) / 2);
+    $left  = array_splice($arr, 0, $m);
+    $right = $arr;
+
+    $leftarr  = msort($left);//左边递归
+    $rightarr = msort($right);//右边递归
+
+    $arr = merge($leftarr, $rightarr);
+
+    return $arr;
+}
+
+print_r(msort($arr));
 
