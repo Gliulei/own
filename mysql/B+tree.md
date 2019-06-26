@@ -1,4 +1,4 @@
-###1.B+tree###
+### 1.B+tree
 1） 非叶子结点的子树指针与关键字个数相同；
 2） B+树父结点中的记录，存储的是下层子树中的最小值；
 3） 所有叶子结点通过一个链指针相连；
@@ -6,7 +6,7 @@
 ###2.文章###
 https://www.cnblogs.com/mysql-dba/p/6689597.html
 
-###3.mysql InnoDB 采用B+tree数据结构###
+### 3.mysql InnoDB 采用B+tree数据结构
 
 innodb表数据文件都是基于主键索引组织的
 
