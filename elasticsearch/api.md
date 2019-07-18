@@ -24,20 +24,12 @@ DELETE /website/blog/123
 ### 4.分析字段分词命令
 ```
 POST '/index/_analyze?pretty' -H 'Content-Type: application/json' -d 
-'{"field": "title","text":"我爱中国"}'
+'{"field": "title","text":"我爱中国","analyzer":"ik_max_word"}'
 ```
 
 ### 5.查看字段mapping
 ```
-PUT test/_mapping/doc
-{
-  "properties": {
-    "msg_english":{
-      "type":"text",
-      "analyzer": "english"
-    }
-  }
-}
+curl -XGET 'host/index/_mapping?pretty'
 ```
 
 ### 6.删除索引
