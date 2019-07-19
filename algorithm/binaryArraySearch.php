@@ -15,7 +15,9 @@
  *
  * @param array $arr
  * @param int   $target
- * @return float|int
+ * @param int   $low
+ * @param int   $high
+ * @return float
  * @author liu.lei
  */
 function binarySearch(Array $arr, int $target, int $low, int $high) {
@@ -47,6 +49,8 @@ function binarySearch(Array $arr, int $target, int $low, int $high) {
  * @param int   $target
  * @param int   $row_start
  * @param int   $row_end
+ * @param int   $col_start
+ * @param int   $col_end
  * @return bool
  * @author liu.lei
  */
@@ -98,11 +102,42 @@ function find(array $arr, int $target) {
 }
 
 
+/**
+ * 根据二维数组由上到下，由左到右递增的规律。
+ * 从左下角开始遍历，如果当前值比 target 小则往右找，如果比 target 大则往上找，如果存在，必然可以找到目标数字。
+ * @param array $arr
+ * @param int   $target
+ * @return bool
+ * @author liu.lei
+ */
+function findElement(array $arr, int $target) {
+    if (empty($arr) || empty($target)) {
+        return false;
+    }
+
+    $row = 0;
+    $col = count($arr[0]) - 1;
+
+    while (($row <= count($arr) - 1) && $col >= 0) {
+        if ($target == $arr[$row][$col]) {
+            return true;
+        } else {
+            if ($target > $arr[$row][$col]) {
+                $row++;
+            } else {
+                $col--;
+            }
+        }
+    }
+
+    return false;
+}
+
 $arr = [
     [1, 2, 3, 4],
     [3, 6, 9, 12],
     [5, 10, 15, 20]
 ];
 
-$a = find($arr, 10);
+$a = findElement($arr, 10);
 var_dump($a);
