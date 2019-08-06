@@ -16,7 +16,7 @@
 + [内存管理](https://biglive.xueersi.com/LivePlayBack/index/2-7155-93080)
 + [C栈和PHP递归调用push和pop stack的过程](https://biglive.xueersi.com/LivePlayBack/index/2-2480-93250)
 + [使用boost做代码段的切换，实现最简单的协程](https://biglive.xueersi.com/LivePlayBack/index/2-2480-96616)
-
++ [视频大全](https://segmentfault.com/a/1190000018488313)
 高级php程序员具备的能力
 
 - 技术能力
