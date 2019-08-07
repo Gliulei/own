@@ -44,3 +44,6 @@ setcookie("name", null, time() - 1000, "/", "a.com");
 
 删除game.a.com下面自身的cookie值
 setcookie("game", null, time() - 1000);
+
+### 参考
+[cookie文章](https://segmentfault.com/a/1190000006932934)
