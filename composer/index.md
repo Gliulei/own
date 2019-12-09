@@ -1,6 +1,9 @@
 ### 中国全量镜像
 https://www.phpcomposer.com/5-features-to-know-about-composer-php
 
+### composer教程
+https://learnku.com/docs/composer/2018/scripts/2095
+
 ### 阿里云 Composer 全量镜像
 https://mirrors.aliyun.com/composer/index.html
 
