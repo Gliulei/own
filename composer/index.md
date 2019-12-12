@@ -1,3 +1,16 @@
+# composer
+
+### composer安装目录
++ 如果不指定环境变量COMPOSER_HOME, 一般会安装在$HOME/.composer里
+
+### composer安装目录介绍
++ config.json 配置文件
++ cache 缓存目录
+    + files dist对应源下载的zip包
+    + repo 包缓存 存放包的descption, 如liulei/multi-review对应:provider-liulei\$multi-review.json
+    + vcs vcs下载的缓存,一般是git clone下来的
+
+
 ### 中国全量镜像
 https://www.phpcomposer.com/5-features-to-know-about-composer-php
 
