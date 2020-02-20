@@ -4,7 +4,7 @@
 + epoll模型的深入分析
 + redis架构特点
 + tcp 沾包
-+ mysql  如果 怎么解决死锁
++ mysql如何怎么解决死锁
 
 ## 算法题
 + [两个大文件中找出共同记录](https://blog.csdn.net/tiankong_/article/details/77234726)
