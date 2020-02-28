@@ -5,6 +5,7 @@
 4） 所有关键字都在叶子结点出现；
 ###2.文章###
 https://www.cnblogs.com/mysql-dba/p/6689597.html
+[什么是B+tree](https://www.cnblogs.com/lmz1/p/10993667.html)
 
 ### 3.mysql InnoDB 采用B+tree数据结构
 
