@@ -39,5 +39,6 @@ TIME_WAIT状态将持续2个MSL(Max Segment Lifetime),在Windows下默认为4分
 一、保证TCP协议的全双工连接能够可靠关闭
 二、保证这次连接的重复数据段从网络中消失
 
+
 文章
 https://blog.csdn.net/u011225629/article/details/48396379

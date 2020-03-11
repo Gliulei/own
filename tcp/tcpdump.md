@@ -12,3 +12,4 @@
 
 ## 参考
 (Unix网络编程简介)[https://cloud.tencent.com/developer/article/1193903]
+(tcp的半连接与完全连接队列)[https://www.jianshu.com/p/ff26312e67a9]
