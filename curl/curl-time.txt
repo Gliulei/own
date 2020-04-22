@@ -1,0 +1,7 @@
+DNS域名解析:%{time_namelookup}\n
+TCP连接建立:%{time_connect}\n
+应用层连接建立:%{time_appconnect}\n
+服务器收到请求:%{time_pretransfer}\n
+服务器处理完成:%{time_starttransfer}\n
+            --------\n
+       共耗时:%{time_total}\n
