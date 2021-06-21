@@ -25,3 +25,6 @@
 }
 </pre>
 看到json结果集 安装成功
+
+【中文文档 】
+https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
